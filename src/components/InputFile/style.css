@@ -1,0 +1,45 @@
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload,
+.file-data {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-file-upload {
+  display: inline-block;
+  cursor: pointer;
+  background: #2eb7dc;
+  border-radius: 7px;
+  padding: 25px 45px;
+}
+
+.upload-content {
+  display: flex;
+  gap: 40px;
+  position: relative;
+}
+
+.upload-content::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 220%;
+  background-color: #fff;
+  top: -60%;
+  left: 18%;
+}
+
+.file-data {
+  top: 65%;
+}

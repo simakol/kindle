@@ -1,0 +1,48 @@
+.main-title,
+.book-name-wrapper > p,
+.back-button {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  color: #ffffff;
+  text-align: center;
+}
+.main-title {
+  margin-top: 55px;
+  margin-bottom: 80px;
+}
+.books-container {
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.book-name-wrapper {
+  padding: 60px 40px;
+  background-color: #2eb7dc;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.book-name-wrapper > p {
+  font-size: 38px;
+}
+
+.back-button {
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 158px;
+  top: 34px;
+}
+.back-button::before {
+  content: url("../../../public/images/icons/back-arrow.svg");
+  margin-right: 10px;
+}
