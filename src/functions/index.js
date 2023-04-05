@@ -4,7 +4,7 @@ function getClippingsObj(clippings) {
   clippingsArr.forEach((quote) => {
     const quoteArr = quote.trim().split("\n");
     let [bookName, , , ...quoteText] = quoteArr;
-    bookName = bookName.split("(")[0].trim();
+    bookName = bookName.split("(")[0].trim().replaceAll("?", "[");
     quoteText = quoteText.join("").trim();
     if (bookName && quoteText) {
       if (!quotes[bookName]) quotes[bookName] = [quoteText];

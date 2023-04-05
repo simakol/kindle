@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { getClippingsObj } from "./functions/";
 import InputFile from "./components/InputFile";
-import Books from "./components/Books";
+import Books from "./pages/Books";
+import QuotePage from "./pages/QuotePage";
 
 function App() {
   const [clippings, setClippings] = useState();
@@ -10,20 +11,17 @@ function App() {
 
   const handleClippings = (clippings) => {
     setClippings(getClippingsObj(clippings));
-    // localStorage.setItem("clippings", clippings)
+    //TODO: add obj w/ books to localStorage
     navigate("/books");
-  };
-
-  const reloadPath = () => {
-    navigate("/");
   };
 
   return (
     <Routes>
       <Route index element={<InputFile sendClippings={handleClippings} />} />
+      <Route path="/books" exact element={<Books clippings={clippings} />} />
       <Route
-        path="/books"
-        element={<Books clippings={clippings} reloadPath={reloadPath} />}
+        path="/books/:name"
+        element={<QuotePage clippings={clippings} />}
       />
     </Routes>
   );

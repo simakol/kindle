@@ -13,24 +13,46 @@
   margin-top: 55px;
   margin-bottom: 80px;
 }
+
 .books-container {
   padding: 0 50px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
 .book-name-wrapper {
-  padding: 60px 40px;
+  padding: 10px;
+  width: 45%;
+  height: 200px;
   background-color: #2eb7dc;
   border-radius: 10px;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}
+
+.book-name-wrapper:nth-child(3n) {
+  width: 100%;
+}
+.book-name-wrapper:nth-child(3n + 1) {
+  width: 68%;
+}
+.book-name-wrapper:nth-child(3n + 2) {
+  width: 26%;
 }
 
 .book-name-wrapper > p {
+  width: 100%;
   font-size: 38px;
+  word-wrap: break-word;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .back-button {
