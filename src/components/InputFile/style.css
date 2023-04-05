@@ -3,7 +3,9 @@ input[type="file"] {
 }
 
 .custom-file-upload,
-.file-data {
+.file-data,
+.input-books-wrapper > a,
+.input-books-wrapper > span {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -16,6 +18,22 @@ input[type="file"] {
   transform: translate(-50%, -50%);
 }
 
+.input-books-wrapper > a {
+  display: inline-block;
+  margin-top: 100px;
+  color: #2eb7dc;
+  text-decoration: none;
+  top: 57%;
+  font-size: 26px;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 25px 45px;
+}
+.input-books-wrapper > span {
+  top: 59%;
+  font-size: 20px;
+}
+
 .custom-file-upload {
   display: inline-block;
   cursor: pointer;
@@ -24,12 +42,15 @@ input[type="file"] {
   padding: 25px 45px;
 }
 
-.upload-content {
+.upload-content > span {
+  padding-left: 20px;
+}
+/* .upload-content {
   display: flex;
   gap: 40px;
   position: relative;
-}
-
+} */
+/* 
 .upload-content::before {
   content: "";
   position: absolute;
@@ -38,7 +59,7 @@ input[type="file"] {
   background-color: #fff;
   top: -60%;
   left: 18%;
-}
+} */
 
 .file-data {
   top: 65%;

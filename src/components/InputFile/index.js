@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { loadFromLocalStorage } from "../../functions";
+import localStorageConfig from "../../localStorage.config";
 import "./style.css";
 
 function InputFile({ sendClippings }) {
   const [file, setFile] = useState();
+  const clippings = loadFromLocalStorage(localStorageConfig.clippingsKey);
 
   const handleFileChange = (e) => {
     if (e.target.files) {
@@ -19,13 +23,22 @@ function InputFile({ sendClippings }) {
     }
   };
 
+  const linkToBooks = clippings ? (
+    <div className="input-books-wrapper">
+      <span>или</span>
+      <Link to="/books">Перейдите к сохраненным книгам &#x1F4D6;</Link>
+    </div>
+  ) : (
+    ""
+  );
+
   if (!file)
     return (
-      <div>
+      <div className="container">
         <label htmlFor="file-upload" className="custom-file-upload">
           <div className="upload-content">
-            <img src="./images/icons/arrow-upload.svg" alt="arrow" /> Выберите
-            файл
+            {/* <img src="./images/icons/arrow-upload.svg" alt="arrow" />  */}
+            &#x1F4E5; <span>Выберите файл</span>
           </div>
         </label>
         <input
@@ -35,6 +48,7 @@ function InputFile({ sendClippings }) {
           accept="text/plain"
         />
         <div className="file-data">{file && `${file.name} - ${file.type}`}</div>
+        {linkToBooks}
       </div>
     );
 }

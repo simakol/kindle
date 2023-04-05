@@ -1,52 +1,40 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { loadFromLocalStorage } from "../../functions";
+import localStorageConfig from "../../localStorage.config";
 import "./style.css";
 
-function Books({ clippings = {} }) {
+function Books({ clippings }) {
+  clippings = loadFromLocalStorage(localStorageConfig.clippingsKey);
   const navigate = useNavigate();
-
-  const reloadPath = () => {
-    navigate("/");
-  };
-
-  useEffect(() => {
-    const currentRoute = localStorage.getItem("route");
-    if (currentRoute) navigate(localStorage.getItem("route"));
-    const handleBeforeUnload = (e) => {
-      e.returnValue = "";
-      localStorage.setItem("route", "/");
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      localStorage.removeItem("route");
-    };
-  }, []);
 
   const showQuotes = (bookName) => {
     navigate(bookName);
   };
 
-  //TODO: rand color generator
-  return (
-    <div className="container">
-      <h1 className="main-title">Ваши цитаты</h1>
-      <button onClick={reloadPath} className="back-button">
-        Загрузить другой файл
-      </button>
-      <div className="books-container">
-        {Object.keys(clippings).map((bookName, i) => (
+  const books = clippings ? (
+    <div className="books-container">
+      {Object.keys(clippings).map((bookName, i) => {
+        return (
           <div
             className="book-name-wrapper"
             key={i}
             onClick={() => showQuotes(bookName)}>
             <p>{bookName.replaceAll("[", "?")}</p>
           </div>
-        ))}
-      </div>
+        );
+      })}
+    </div>
+  ) : (
+    <p className="books-not-found">Цитат не найдено &#x1F622;</p>
+  );
+
+  return (
+    <div className="container">
+      <h1 className="main-title">Ваши цитаты &#x1F4D6;</h1>
+      <Link to="/" className="back-button">
+        Загрузить другой файл &#x1F4E5;
+      </Link>
+      {books}
     </div>
   );
 }

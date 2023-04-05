@@ -1,17 +1,22 @@
 import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { getClippingsObj } from "./functions/";
+import { getClippingsObj, saveToLocalStorage } from "./functions/";
+import localStorageConfig from "./localStorage.config";
 import InputFile from "./components/InputFile";
 import Books from "./pages/Books";
 import QuotePage from "./pages/QuotePage";
+import NotFound from "./pages/NotFound";
+
+//TODO: add button "TO TOP"
 
 function App() {
   const [clippings, setClippings] = useState();
   const navigate = useNavigate();
 
   const handleClippings = (clippings) => {
-    setClippings(getClippingsObj(clippings));
-    //TODO: add obj w/ books to localStorage
+    clippings = getClippingsObj(clippings);
+    setClippings(clippings);
+    saveToLocalStorage(localStorageConfig.clippingsKey, clippings);
     navigate("/books");
   };
 
@@ -23,6 +28,7 @@ function App() {
         path="/books/:name"
         element={<QuotePage clippings={clippings} />}
       />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

@@ -1,6 +1,7 @@
 .main-title,
 .book-name-wrapper > p,
-.back-button {
+.back-button,
+.books-not-found {
   font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: 600;
@@ -9,6 +10,7 @@
   color: #ffffff;
   text-align: center;
 }
+
 .main-title {
   margin-top: 55px;
   margin-bottom: 80px;
@@ -57,9 +59,8 @@
 
 .back-button {
   font-size: 24px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
   position: absolute;
   left: 158px;
   top: 34px;

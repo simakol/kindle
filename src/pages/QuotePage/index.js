@@ -1,32 +1,41 @@
 import { useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { loadFromLocalStorage } from "../../functions";
+import localStorageConfig from "../../localStorage.config";
 import "./style.css";
 
 function QuotePage({ clippings }) {
-  const navigate = useNavigate();
+  clippings = loadFromLocalStorage(localStorageConfig.clippingsKey);
   const { name } = useParams();
-  const quotes = clippings[name];
+  const quotes = clippings?.[name];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const goBack = () => {
-    navigate(-1);
-  };
+  const quotesMarkup =
+    clippings && quotes ? (
+      <>
+        <h1 className="main-title book">{name.replaceAll("[", "?")}</h1>
+        <div className="quotes">
+          {quotes.map((quote, i) => (
+            <p key={i} className="quote-item">
+              {quote}
+            </p>
+          ))}
+        </div>
+      </>
+    ) : (
+      <p className="books-not-found quotes">
+        Книги <span>{name}</span> не найдено! &#x1F914;
+      </p>
+    );
   return (
     <div className="container">
-      <button onClick={goBack} className="back-button">
+      <Link to="/books" className="back-button">
         Назад
-      </button>
-      <h1 className="main-title book">{name.replaceAll("[", "?")}</h1>
-      <div className="quotes">
-        {quotes.map((quote, i) => (
-          <p key={i} className="quote-item">
-            {quote}
-          </p>
-        ))}
-      </div>
+      </Link>
+      {quotesMarkup}
     </div>
   );
 }

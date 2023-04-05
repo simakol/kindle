@@ -1,0 +1,17 @@
+.not-found-container {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 27px;
+  color: #ffffff;
+  margin-top: 150px;
+}
+
+.not-found-container > a {
+  margin-top: 100px;
+  display: inline-block;
+  color: #2eb7dc;
+  text-decoration: none;
+}
