@@ -1,9 +1,6 @@
-import { useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getBooksByAuthor } from "../../functions/clippingsFilters";
-import ScrollToTopButton from "../../components/ScrollToTopButton";
-import Footer from "../../components/Footer";
-import ContentTile from "../../components/ContentTile";
+import BasicPage from "../../components/BasicPage";
 
 function AuthorBooks({ clippings }) {
   const { author } = useParams();
@@ -11,33 +8,19 @@ function AuthorBooks({ clippings }) {
 
   const booksByAuthor = getBooksByAuthor({ clippings, author });
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "auto",
-    });
-  }, []);
-
   const showQuotes = ({ author, bookName }) => {
     navigate(`/books/${author}/${encodeURIComponent(bookName)}`);
   };
 
   return (
-    <>
-      <div className="container books">
-        <h1 className="main-title">Книги автора {author} &#x1F4D6;</h1>
-        <Link to="/" className="back-button">
-          Загрузить другой файл &#x1F4E5;
-        </Link>
-        <ContentTile
-          content={booksByAuthor}
-          redirectFunction={showQuotes}
-          notFoundText="Книг не найдено"
-        />
-        <ScrollToTopButton />
-      </div>
-      <Footer />
-    </>
+    <BasicPage
+      title={`Книги автора ${author} \u{1F58B}`}
+      backBtnText="К списку писателей"
+      backBtnPath="/authors"
+      tileContent={booksByAuthor}
+      tileRedirectFunction={showQuotes}
+      tileNotFoundText="Книг не найдено"
+    />
   );
 }
 

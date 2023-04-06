@@ -1,9 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import ScrollToTopButton from "../../components/ScrollToTopButton";
-import Footer from "../../components/Footer";
-import SortContent from "../../components/SortContent";
-import ContentTile from "../../components/ContentTile";
-import "./style.css";
+import { useNavigate } from "react-router-dom";
+import BasicPage from "../../components/BasicPage";
 
 function Authors({ authors }) {
   const navigate = useNavigate();
@@ -13,22 +9,15 @@ function Authors({ authors }) {
   };
 
   return (
-    <>
-      <div className="container books">
-        <h1 className="main-title">Ваши писатели &#x1F58B;</h1>
-        <SortContent active="authors" />
-        <Link to="/" className="back-button">
-          Загрузить другой файл &#x1F4E5;
-        </Link>
-        <ContentTile
-          content={authors}
-          redirectFunction={showAuthorBooks}
-          notFoundText="Писателей не найдено"
-        />
-        <ScrollToTopButton />
-      </div>
-      <Footer />
-    </>
+    <BasicPage
+      title="Ваши писатели &#x1F58B;"
+      sortActiveBtn="authors"
+      backBtnText="Загрузить другой файл &#x1F4E5;"
+      backBtnPath="/"
+      tileContent={authors}
+      tileRedirectFunction={showAuthorBooks}
+      tileNotFoundText="Писателей не найдено"
+    />
   );
 }
 

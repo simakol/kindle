@@ -1,25 +1,6 @@
 import "./style.css";
 
 function ContentTile({ content, redirectFunction, notFoundText }) {
-  const showTileContent = ({ author, bookName }) => {
-    let title = "";
-    let subtitle = "";
-
-    if (!bookName && author) title = author;
-    else if (!author && bookName) title = bookName;
-    else {
-      title = bookName;
-      subtitle = author;
-    }
-
-    return (
-      <>
-        <p className="tile-title">{title}</p>
-        <p className="tile-subtitle">{subtitle}</p>
-      </>
-    );
-  };
-
   console.log(content);
   return content ? (
     <div className="tile-container">
@@ -28,7 +9,12 @@ function ContentTile({ content, redirectFunction, notFoundText }) {
           className="tile-title-wrapper"
           key={i}
           onClick={() => redirectFunction({ author, bookName })}>
-          {showTileContent({ author, bookName })}
+          {
+            <>
+              <p className="tile-title">{bookName ? bookName : author}</p>
+              <p className="tile-subtitle">{bookName ? author : ""}</p>
+            </>
+          }
         </div>
       ))}
     </div>

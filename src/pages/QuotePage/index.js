@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getQuotesByBookAndAuthor } from "../../functions/clippingsFilters";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
 import Footer from "../../components/Footer";
@@ -7,6 +7,8 @@ import "./style.css";
 
 function QuotePage({ clippings }) {
   const { bookName, author } = useParams();
+  const navigate = useNavigate();
+
   const quotes = getQuotesByBookAndAuthor({
     clippings,
     bookName,
@@ -19,6 +21,10 @@ function QuotePage({ clippings }) {
       behavior: "auto",
     });
   }, []);
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   const quotesMarkup = quotes ? (
     <>
@@ -44,9 +50,9 @@ function QuotePage({ clippings }) {
   return (
     <>
       <div className="container">
-        <Link to="/books" className="back-button">
+        <button type="button" onClick={goBack} className="back-button">
           Назад
-        </Link>
+        </button>
         {quotesMarkup}
         <ScrollToTopButton />
       </div>
