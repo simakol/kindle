@@ -7,6 +7,8 @@ import Books from "./pages/Books";
 import QuotePage from "./pages/QuotePage";
 import NotFound from "./pages/NotFound";
 
+//TODO: add msg "NO BOOKS"
+
 function App() {
   const [clippings, setClippings] = useState();
   const navigate = useNavigate();
