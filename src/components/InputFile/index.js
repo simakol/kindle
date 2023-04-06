@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { loadFromLocalStorage } from "../../functions";
+import { loadFromLocalStorage } from "../../functions/storage";
 import localStorageConfig from "../../localStorage.config";
 import "./style.css";
 

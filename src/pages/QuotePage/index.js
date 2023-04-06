@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { loadFromLocalStorage } from "../../functions";
-import localStorageConfig from "../../localStorage.config";
+import { getQuotesByBookAndAuthor } from "../../functions/clippingsFilters";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
 import Footer from "../../components/Footer";
 import "./style.css";
 
 function QuotePage({ clippings }) {
-  clippings = loadFromLocalStorage(localStorageConfig.clippingsKey);
-  const { name, author } = useParams();
-  const quotes = clippings[author][name]?.quotes;
+  const { bookName, author } = useParams();
+  const quotes = getQuotesByBookAndAuthor({
+    clippings,
+    bookName,
+    author,
+  });
 
   useEffect(() => {
     window.scrollTo({
@@ -18,26 +20,25 @@ function QuotePage({ clippings }) {
     });
   }, []);
 
-  const quotesMarkup =
-    clippings && quotes ? (
-      <>
-        <div className="quotes-title-wrapper">
-          <h1 className="main-title">{name.replaceAll("[", "?")}</h1>
-          <h2 className="main-subtitle">{author}</h2>
-        </div>
-        <div className="quotes">
-          {quotes.map((quote, i) => (
-            <p key={i} className="quote-item">
-              {quote}
-            </p>
-          ))}
-        </div>
-      </>
-    ) : (
-      <p className="books-not-found quotes">
-        Книги <span>{name}</span> не найдено! &#x1F914;
-      </p>
-    );
+  const quotesMarkup = quotes ? (
+    <>
+      <div className="quotes-title-wrapper">
+        <h1 className="main-title">{bookName.replaceAll("[", "?")}</h1>
+        <h2 className="main-subtitle">{author}</h2>
+      </div>
+      <div className="quotes">
+        {quotes.map((quote, i) => (
+          <p key={i} className="quote-item">
+            {quote}
+          </p>
+        ))}
+      </div>
+    </>
+  ) : (
+    <p className="books-not-found quotes">
+      Книги <span>{bookName}</span> не найдено! &#x1F914;
+    </p>
+  );
   return (
     <>
       <div className="container">

@@ -4,34 +4,33 @@ import Footer from "../../components/Footer";
 import SortContent from "../../components/SortContent";
 import "./style.css";
 
-function Books({ allBooks }) {
+function Authors({ authors }) {
   const navigate = useNavigate();
 
-  const showQuotes = (author, bookName) => {
-    navigate(`${author}/${bookName}`);
+  const showAuthorBooks = (author) => {
+    navigate(`/authors/${author}`);
   };
 
-  const books = allBooks ? (
+  const books = authors ? (
     <div className="books-container">
-      {allBooks.map(({ bookName, author }, i) => (
+      {authors.map((author, i) => (
         <div
-          className="book-name-wrapper"
+          className="book-name-wrapper authors"
           key={i}
-          onClick={() => showQuotes(author, bookName)}>
-          <p className="book-name">{bookName.replaceAll("[", "?")}</p>
+          onClick={() => showAuthorBooks(author)}>
           <p className="book-author">{author}</p>
         </div>
       ))}
     </div>
   ) : (
-    <p className="books-not-found">Книг не найдено &#x1F622;</p>
+    <p className="books-not-found">Авторов не найдено &#x1F622;</p>
   );
 
   return (
     <>
       <div className="container books">
-        <h1 className="main-title">Ваши книги &#x1F4D6;</h1>
-        <SortContent active="books" />
+        <h1 className="main-title">Ваши писатели &#x1F58B;</h1>
+        <SortContent active="authors" />
         <Link to="/" className="back-button">
           Загрузить другой файл &#x1F4E5;
         </Link>
@@ -43,4 +42,4 @@ function Books({ allBooks }) {
   );
 }
 
-export default Books;
+export default Authors;
