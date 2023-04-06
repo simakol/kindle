@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { loadFromLocalStorage } from "../../functions";
 import localStorageConfig from "../../localStorage.config";
+import ScrollToTopButton from "../../components/ScrollToTopButton";
 import "./style.css";
 
 function QuotePage({ clippings }) {
@@ -10,7 +11,10 @@ function QuotePage({ clippings }) {
   const quotes = clippings?.[name];
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
   }, []);
 
   const quotesMarkup =
@@ -36,6 +40,7 @@ function QuotePage({ clippings }) {
         Назад
       </Link>
       {quotesMarkup}
+      <ScrollToTopButton />
     </div>
   );
 }

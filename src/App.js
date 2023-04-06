@@ -7,8 +7,6 @@ import Books from "./pages/Books";
 import QuotePage from "./pages/QuotePage";
 import NotFound from "./pages/NotFound";
 
-//TODO: add button "TO TOP"
-
 function App() {
   const [clippings, setClippings] = useState();
   const navigate = useNavigate();

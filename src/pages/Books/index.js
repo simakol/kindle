@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { loadFromLocalStorage } from "../../functions";
 import localStorageConfig from "../../localStorage.config";
+import ScrollToTopButton from "../../components/ScrollToTopButton";
 import "./style.css";
 
 function Books({ clippings }) {
@@ -35,6 +36,7 @@ function Books({ clippings }) {
         Загрузить другой файл &#x1F4E5;
       </Link>
       {books}
+      <ScrollToTopButton />
     </div>
   );
 }

@@ -12,7 +12,7 @@
 }
 
 .main-title {
-  margin-top: 55px;
+  margin-top: 80px;
   margin-bottom: 80px;
 }
 
@@ -35,6 +35,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
+  box-shadow: 2px 2px 10px #2eb7dc;
+  transition: 0.2s ease-in-out;
+}
+.book-name-wrapper:hover {
+  background-color: #08c6fb;
 }
 
 .book-name-wrapper:nth-child(3n) {

@@ -5,6 +5,10 @@
   border-radius: 10px;
 }
 
+.quotes {
+  padding: 0 20px;
+}
+
 .quote-item {
   font-family: "Inter", sans-serif;
   font-style: normal;
