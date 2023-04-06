@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.quote-item::after {
+.quote-item:not(:last-child)::after {
   content: "";
   position: absolute;
   width: 80%;

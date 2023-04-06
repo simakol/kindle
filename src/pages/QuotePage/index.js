@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { loadFromLocalStorage } from "../../functions";
 import localStorageConfig from "../../localStorage.config";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
+import Footer from "../../components/Footer";
 import "./style.css";
 
 function QuotePage({ clippings }) {
@@ -35,13 +36,16 @@ function QuotePage({ clippings }) {
       </p>
     );
   return (
-    <div className="container">
-      <Link to="/books" className="back-button">
-        Назад
-      </Link>
-      {quotesMarkup}
-      <ScrollToTopButton />
-    </div>
+    <>
+      <div className="container">
+        <Link to="/books" className="back-button">
+          Назад
+        </Link>
+        {quotesMarkup}
+        <ScrollToTopButton />
+      </div>
+      {clippings && quotes ? <Footer /> : ""}
+    </>
   );
 }
 

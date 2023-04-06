@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { loadFromLocalStorage } from "../../functions";
 import localStorageConfig from "../../localStorage.config";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
+import Footer from "../../components/Footer";
 import "./style.css";
 
 function Books({ clippings }) {
@@ -31,14 +32,17 @@ function Books({ clippings }) {
     );
 
   return (
-    <div className="container">
-      <h1 className="main-title">Ваши книги &#x1F4D6;</h1>
-      <Link to="/" className="back-button">
-        Загрузить другой файл &#x1F4E5;
-      </Link>
-      {books}
-      <ScrollToTopButton />
-    </div>
+    <>
+      <div className="container books">
+        <h1 className="main-title">Ваши книги &#x1F4D6;</h1>
+        <Link to="/" className="back-button">
+          Загрузить другой файл &#x1F4E5;
+        </Link>
+        {books}
+        <ScrollToTopButton />
+      </div>
+      <Footer />
+    </>
   );
 }
 
