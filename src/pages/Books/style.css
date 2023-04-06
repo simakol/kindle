@@ -50,15 +50,17 @@
 .book-name-wrapper:nth-child(3n + 2) {
   width: 26%;
 }
-
+.book-name-wrapper > .book-author {
+  font-size: 22px;
+  margin-top: -15px;
+  font-weight: 100;
+}
+.book-name-wrapper > .book-name {
+  padding-top: 10px;
+}
 .book-name-wrapper > p {
-  width: 100%;
   font-size: 38px;
   word-wrap: break-word;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .back-button {

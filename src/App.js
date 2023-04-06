@@ -23,7 +23,7 @@ function App() {
       <Route index element={<InputFile sendClippings={handleClippings} />} />
       <Route path="/books" exact element={<Books clippings={clippings} />} />
       <Route
-        path="/books/:name"
+        path="/books/:author/:name"
         element={<QuotePage clippings={clippings} />}
       />
       <Route path="*" element={<NotFound />} />

@@ -9,23 +9,24 @@ function Books({ clippings }) {
   clippings = loadFromLocalStorage(localStorageConfig.clippingsKey);
   const navigate = useNavigate();
 
-  const showQuotes = (bookName) => {
-    navigate(bookName);
+  const showQuotes = (author, bookName) => {
+    navigate(`${author}/${bookName}`);
   };
 
   const books =
     clippings && Object.keys(clippings).length !== 0 ? (
       <div className="books-container">
-        {Object.keys(clippings).map((bookName, i) => {
-          return (
+        {Object.keys(clippings).map((author) =>
+          Object.keys(clippings[author]).map((bookName, i) => (
             <div
               className="book-name-wrapper"
               key={i}
-              onClick={() => showQuotes(bookName)}>
-              <p>{bookName.replaceAll("[", "?")}</p>
+              onClick={() => showQuotes(author, bookName)}>
+              <p className="book-name">{bookName.replaceAll("[", "?")}</p>
+              <p className="book-author">{author}</p>
             </div>
-          );
-        })}
+          ))
+        )}
       </div>
     ) : (
       <p className="books-not-found">Книг не найдено &#x1F622;</p>

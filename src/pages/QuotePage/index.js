@@ -8,8 +8,8 @@ import "./style.css";
 
 function QuotePage({ clippings }) {
   clippings = loadFromLocalStorage(localStorageConfig.clippingsKey);
-  const { name } = useParams();
-  const quotes = clippings?.[name];
+  const { name, author } = useParams();
+  const quotes = clippings[author][name]?.quotes;
 
   useEffect(() => {
     window.scrollTo({
@@ -21,7 +21,10 @@ function QuotePage({ clippings }) {
   const quotesMarkup =
     clippings && quotes ? (
       <>
-        <h1 className="main-title book">{name.replaceAll("[", "?")}</h1>
+        <div className="quotes-title-wrapper">
+          <h1 className="main-title">{name.replaceAll("[", "?")}</h1>
+          <h2 className="main-subtitle">{author}</h2>
+        </div>
         <div className="quotes">
           {quotes.map((quote, i) => (
             <p key={i} className="quote-item">

@@ -1,14 +1,4 @@
-.main-title.book {
-  margin-top: 150px;
-  background-color: #2eb7dc;
-  padding: 50px 100px;
-  border-radius: 10px;
-}
-
-.quotes {
-  padding: 0 20px;
-}
-
+.main-subtitle,
 .quote-item {
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -17,6 +7,30 @@
   line-height: 27px;
   color: #ffffff;
   text-align: center;
+}
+
+.quotes-title-wrapper {
+  margin-top: 150px;
+  background-color: #2eb7dc;
+  padding: 50px 100px;
+  border-radius: 10px;
+  margin-bottom: 90px;
+}
+
+.main-subtitle {
+  margin-top: 10px;
+  font-weight: 200;
+}
+
+.quotes-title-wrapper > .main-title {
+  margin: 0;
+}
+
+.quotes {
+  padding: 0 20px;
+}
+
+.quote-item {
   margin-bottom: 90px;
   position: relative;
 }
