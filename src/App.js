@@ -26,6 +26,10 @@ function App() {
 
   const allBooks = getAllBooks(clippings);
   const authors = getAuthors(clippings);
+  const counter = {
+    booksQuantity: allBooks.length,
+    authorsQuantity: authors.length,
+  };
 
   return (
     <Routes>
@@ -35,12 +39,20 @@ function App() {
           <InputFile sendClippings={handleClippings} clippings={clippings} />
         }
       />
-      <Route path="/books" exact element={<Books allBooks={allBooks} />} />
+      <Route
+        path="/books"
+        exact
+        element={<Books allBooks={allBooks} counter={counter} />}
+      />
       <Route
         path="/books/:author/:bookName"
         element={<QuotePage clippings={clippings} />}
       />
-      <Route path="/authors" exact element={<Authors authors={authors} />} />
+      <Route
+        path="/authors"
+        exact
+        element={<Authors authors={authors} counter={counter} />}
+      />
       <Route
         path="/authors/:author"
         exact

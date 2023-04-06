@@ -13,12 +13,18 @@ function BasicPage({
   tileContent,
   tileRedirectFunction,
   tileNotFoundText,
+  counter,
 }) {
+  console.log(tileContent);
   return (
     <>
       <div className="container basic-page">
         <h1 className="main-title">{title}</h1>
-        {sortActiveBtn ? <SortContent active={sortActiveBtn} /> : ""}
+        {sortActiveBtn ? (
+          <SortContent active={sortActiveBtn} counter={counter} />
+        ) : (
+          ""
+        )}
         <Link to={backBtnPath} className="back-button">
           {backBtnText}
         </Link>

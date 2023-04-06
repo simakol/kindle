@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import BasicPage from "../../components/BasicPage";
 
-function Authors({ authors }) {
+function Authors({ authors, counter }) {
   const navigate = useNavigate();
 
   const showAuthorBooks = ({ author }) => {
@@ -17,6 +17,7 @@ function Authors({ authors }) {
       tileContent={authors}
       tileRedirectFunction={showAuthorBooks}
       tileNotFoundText="Писателей не найдено"
+      counter={counter}
     />
   );
 }

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getBooksByAuthor } from "../../functions/clippingsFilters";
 import BasicPage from "../../components/BasicPage";
@@ -5,8 +6,14 @@ import BasicPage from "../../components/BasicPage";
 function AuthorBooks({ clippings }) {
   const { author } = useParams();
   const navigate = useNavigate();
-
   const booksByAuthor = getBooksByAuthor({ clippings, author });
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+  }, []);
 
   const showQuotes = ({ author, bookName }) => {
     navigate(`/books/${author}/${encodeURIComponent(bookName)}`);
