@@ -3,13 +3,13 @@ function isClippingsExist(clippings) {
 }
 
 function checkResult(result) {
-  return result.length !== 0 ? result : undefined;
+  return result?.length !== 0 ? result : undefined;
 }
 
 function getAuthors(clippings) {
   let authors = [];
   if (isClippingsExist(clippings)) {
-    authors = Object.keys(clippings).map((author) => author);
+    authors = Object.keys(clippings).map((author) => ({ author }));
   }
   return checkResult(authors);
 }
@@ -31,14 +31,15 @@ function getAllBooks(clippings) {
 function getBooksByAuthor({ clippings, author }) {
   let booksByAuthor = [];
   if (isClippingsExist(clippings)) {
-    booksByAuthor = Object.keys(clippings[author]).map((bookName) => bookName);
+    booksByAuthor = Object.keys(clippings[author]).map((bookName) => ({
+      bookName,
+      author,
+    }));
   }
   return checkResult(booksByAuthor);
 }
 function getQuotesByBookAndAuthor({ clippings, bookName, author }) {
-  return isClippingsExist(clippings)
-    ? clippings[author][bookName]?.quotes
-    : undefined;
+  return checkResult(clippings?.[author]?.[bookName]?.quotes);
 }
 
 export { getAuthors, getAllBooks, getBooksByAuthor, getQuotesByBookAndAuthor };

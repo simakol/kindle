@@ -12,26 +12,29 @@ input[type="file"] {
   font-size: 24px;
   line-height: 29px;
   color: #ffffff;
+}
+
+.file-upload-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .input-books-wrapper > a {
-  display: inline-block;
-  margin-top: 100px;
+  display: block;
   color: #2eb7dc;
   text-decoration: none;
-  top: 57%;
   font-size: 26px;
   background-color: #fff;
   border-radius: 7px;
   padding: 25px 45px;
 }
 .input-books-wrapper > span {
-  top: 59%;
   font-size: 20px;
+  display: block;
+  margin: 20px 0;
 }
 
 .custom-file-upload {
@@ -60,7 +63,3 @@ input[type="file"] {
   top: -60%;
   left: 18%;
 } */
-
-.file-data {
-  top: 65%;
-}

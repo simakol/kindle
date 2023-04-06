@@ -46,11 +46,11 @@
   transform: translate(-50%);
 }
 
-.books-not-found.quotes {
+.something-not-found.quotes {
   margin-top: 150px;
 }
 
-.books-not-found.quotes > span {
+.something-not-found.quotes > span {
   color: #2eb7dc;
   text-decoration: underline;
 }

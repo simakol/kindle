@@ -8,7 +8,7 @@ function getClippingsObj(clippings) {
     const author = bookNameInfo[1]
       ? bookNameInfo[1].trim().slice(0, -1)
       : "Unknown";
-    bookName = bookNameInfo[0].trim().replaceAll("?", "[");
+    bookName = bookNameInfo[0].trim();
     quoteText = quoteText.join("").trim();
 
     if (bookName && quoteText && author) {

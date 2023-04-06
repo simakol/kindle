@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
+import ContentTile from "../../components/ContentTile";
 import Footer from "../../components/Footer";
 import SortContent from "../../components/SortContent";
 import "./style.css";
@@ -7,25 +8,9 @@ import "./style.css";
 function Books({ allBooks }) {
   const navigate = useNavigate();
 
-  const showQuotes = (author, bookName) => {
-    navigate(`${author}/${bookName}`);
+  const showQuotes = ({ author, bookName }) => {
+    navigate(`${author}/${encodeURIComponent(bookName)}`);
   };
-
-  const books = allBooks ? (
-    <div className="books-container">
-      {allBooks.map(({ bookName, author }, i) => (
-        <div
-          className="book-name-wrapper"
-          key={i}
-          onClick={() => showQuotes(author, bookName)}>
-          <p className="book-name">{bookName.replaceAll("[", "?")}</p>
-          <p className="book-author">{author}</p>
-        </div>
-      ))}
-    </div>
-  ) : (
-    <p className="books-not-found">Книг не найдено &#x1F622;</p>
-  );
 
   return (
     <>
@@ -35,7 +20,11 @@ function Books({ allBooks }) {
         <Link to="/" className="back-button">
           Загрузить другой файл &#x1F4E5;
         </Link>
-        {books}
+        <ContentTile
+          content={allBooks}
+          redirectFunction={showQuotes}
+          notFoundText="Книг не найдено"
+        />
         <ScrollToTopButton />
       </div>
       <Footer />

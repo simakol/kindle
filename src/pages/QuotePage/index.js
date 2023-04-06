@@ -23,7 +23,7 @@ function QuotePage({ clippings }) {
   const quotesMarkup = quotes ? (
     <>
       <div className="quotes-title-wrapper">
-        <h1 className="main-title">{bookName.replaceAll("[", "?")}</h1>
+        <h1 className="main-title">{bookName}</h1>
         <h2 className="main-subtitle">{author}</h2>
       </div>
       <div className="quotes">
@@ -35,10 +35,12 @@ function QuotePage({ clippings }) {
       </div>
     </>
   ) : (
-    <p className="books-not-found quotes">
-      Книги <span>{bookName}</span> не найдено! &#x1F914;
+    <p className="something-not-found quotes">
+      Книги <span>{bookName}</span> автора <span>{author}</span> не найдено!
+      &#x1F914;
     </p>
   );
+
   return (
     <>
       <div className="container">

@@ -3,8 +3,8 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { saveToLocalStorage, loadFromLocalStorage } from "./functions/storage";
 import getClippingsObj from "./functions/getClippingsObj";
 import { getAllBooks, getAuthors } from "./functions/clippingsFilters";
-import localStorageConfig from "./localStorage.config";
-import InputFile from "./components/InputFile";
+import localStorageConfig from "./configurations/localStorage.config";
+import InputFile from "./pages/InputFile";
 import Books from "./pages/Books";
 import Authors from "./pages/Authors";
 import QuotePage from "./pages/QuotePage";
@@ -29,7 +29,12 @@ function App() {
 
   return (
     <Routes>
-      <Route index element={<InputFile sendClippings={handleClippings} />} />
+      <Route
+        index
+        element={
+          <InputFile sendClippings={handleClippings} clippings={clippings} />
+        }
+      />
       <Route path="/books" exact element={<Books allBooks={allBooks} />} />
       <Route
         path="/books/:author/:bookName"
