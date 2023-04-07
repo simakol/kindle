@@ -30,7 +30,7 @@ function getAllBooks(clippings) {
 }
 function getBooksByAuthor({ clippings, author }) {
   let booksByAuthor = [];
-  if (isClippingsExist(clippings)) {
+  if (isClippingsExist(clippings) && clippings[author]) {
     booksByAuthor = Object.keys(clippings[author]).map((bookName) => ({
       bookName,
       author,

@@ -15,7 +15,6 @@ function BasicPage({
   tileNotFoundText,
   counter,
 }) {
-  console.log(tileContent);
   return (
     <>
       <div className="container basic-page">

@@ -23,6 +23,7 @@
   position: absolute;
   left: 158px;
   top: 34px;
+  cursor: pointer;
 }
 .back-button::before {
   content: url("../../../public/images/icons/back-arrow.svg");

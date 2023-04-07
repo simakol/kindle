@@ -1,7 +1,6 @@
 import "./style.css";
 
 function ContentTile({ content, redirectFunction, notFoundText }) {
-  console.log(content);
   return content ? (
     <div className="tile-container">
       {content.map(({ bookName, author }, i) => (
