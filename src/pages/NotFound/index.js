@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="container not-found-container">
       <h1>Упс! Похоже, вы потерялись &#x1F50D;</h1>
-      <Link to="/">На главную &#x1F3E0;</Link>
+      <Link to="/kindle">На главную &#x1F3E0;</Link>
     </div>
   );
 }

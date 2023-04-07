@@ -5,12 +5,12 @@ function SortContent({ active, counter }) {
   return (
     <div className="sort-btns-wrapper">
       <Link
-        to="/books"
+        to="/kindle/books"
         className={`${active === "books" ? "active" : ""} sort-btn`}>
         Книги {counter.booksQuantity}
       </Link>
       <Link
-        to="/authors"
+        to="/kindle/authors"
         className={`${active === "authors" ? "active" : ""} sort-btn`}>
         Писатели {counter.authorsQuantity}
       </Link>

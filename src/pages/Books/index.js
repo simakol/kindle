@@ -5,7 +5,7 @@ function Books({ allBooks, counter }) {
   const navigate = useNavigate();
 
   const showQuotes = ({ author, bookName }) => {
-    navigate(`${author}/${encodeURIComponent(bookName)}`);
+    navigate(`/kindle/books/${author}/${encodeURIComponent(bookName)}`);
   };
 
   return (
@@ -13,7 +13,7 @@ function Books({ allBooks, counter }) {
       title="Ваши книги &#x1F4D6;"
       sortActiveBtn="books"
       backBtnText="Загрузить другой файл &#x1F4E5;"
-      backBtnPath="/"
+      backBtnPath="/kindle"
       tileContent={allBooks}
       tileRedirectFunction={showQuotes}
       tileNotFoundText="Книг не найдено"

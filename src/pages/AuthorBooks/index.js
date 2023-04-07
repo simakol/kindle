@@ -16,14 +16,14 @@ function AuthorBooks({ clippings }) {
   }, []);
 
   const showQuotes = ({ author, bookName }) => {
-    navigate(`/books/${author}/${encodeURIComponent(bookName)}`);
+    navigate(`/kindle/books/${author}/${encodeURIComponent(bookName)}`);
   };
 
   return (
     <BasicPage
       title={`Книги автора ${author} \u{1F58B}`}
       backBtnText="К списку писателей"
-      backBtnPath="/authors"
+      backBtnPath="/kindle/authors"
       tileContent={booksByAuthor}
       tileRedirectFunction={showQuotes}
       tileNotFoundText="Книг не найдено"

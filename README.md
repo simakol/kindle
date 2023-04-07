@@ -18,7 +18,7 @@ To get started with the Kindle Highlights Parser, follow these steps:
 4. Import your Kindle highlights file by clicking on the "Import" button and selecting the file
 5. Organize highlights as needed
 
-> or follow this link: [Kindle Parser]()
+> or follow this link: [Kindle Parser](https://simakol.github.io/kindle/)
 
 ## Technologies Used
 

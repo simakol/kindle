@@ -23,7 +23,7 @@ function InputFile({ sendClippings, clippings }) {
   const linkToBooks = clippings ? (
     <div className="input-books-wrapper">
       <span>или</span>
-      <Link to="/books">Перейдите к сохраненным книгам &#x1F4D6;</Link>
+      <Link to="/kindle/books">Перейдите к сохраненным книгам &#x1F4D6;</Link>
     </div>
   ) : (
     ""

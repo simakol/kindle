@@ -34,27 +34,29 @@ function App() {
   return (
     <Routes>
       <Route
+        exact
         index
+        path="/kindle"
         element={
           <InputFile sendClippings={handleClippings} clippings={clippings} />
         }
       />
       <Route
-        path="/books"
+        path="/kindle/books"
         exact
         element={<Books allBooks={allBooks} counter={counter} />}
       />
       <Route
-        path="/books/:author/:bookName"
+        path="/kindle/books/:author/:bookName"
         element={<QuotePage clippings={clippings} />}
       />
       <Route
-        path="/authors"
+        path="/kindle/authors"
         exact
         element={<Authors authors={authors} counter={counter} />}
       />
       <Route
-        path="/authors/:author"
+        path="/kindle/authors/:author"
         exact
         element={<AuthorBooks clippings={clippings} />}
       />
