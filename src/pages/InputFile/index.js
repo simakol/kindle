@@ -35,7 +35,6 @@ function InputFile({ sendClippings, clippings }) {
         <div className="file-upload-wrapper">
           <label htmlFor="file-upload" className="custom-file-upload">
             <div className="upload-content">
-              {/* <img src="./images/icons/arrow-upload.svg" alt="arrow" />  */}
               &#x1F4E5; <span>Выберите файл</span>
             </div>
           </label>
@@ -45,9 +44,6 @@ function InputFile({ sendClippings, clippings }) {
             onChange={handleFileChange}
             accept="text/plain"
           />
-          {/* <div className="file-data">
-            {file && `${file.name} - ${file.type}`}
-          </div> */}
           {linkToBooks}
         </div>
       </div>

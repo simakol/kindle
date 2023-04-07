@@ -31,6 +31,7 @@ input[type="file"] {
   border-radius: 7px;
   padding: 25px 45px;
 }
+
 .input-books-wrapper > span {
   font-size: 20px;
   display: block;
@@ -48,18 +49,3 @@ input[type="file"] {
 .upload-content > span {
   padding-left: 20px;
 }
-/* .upload-content {
-  display: flex;
-  gap: 40px;
-  position: relative;
-} */
-/* 
-.upload-content::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 220%;
-  background-color: #fff;
-  top: -60%;
-  left: 18%;
-} */

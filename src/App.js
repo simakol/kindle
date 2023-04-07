@@ -27,8 +27,8 @@ function App() {
   const allBooks = getAllBooks(clippings);
   const authors = getAuthors(clippings);
   const counter = {
-    booksQuantity: allBooks.length,
-    authorsQuantity: authors.length,
+    booksQuantity: allBooks?.length || 0,
+    authorsQuantity: authors?.length || 0,
   };
 
   return (
