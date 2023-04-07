@@ -21,7 +21,7 @@ function App() {
     clippings = getClippingsObj(clippings);
     setClippings(clippings);
     saveToLocalStorage(localStorageConfig.clippingsKey, clippings);
-    navigate("/books");
+    navigate("/kindle/books");
   };
 
   const allBooks = getAllBooks(clippings);
