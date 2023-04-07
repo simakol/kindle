@@ -1,6 +1,6 @@
 # Kindle Highlights Parser
 
-The Kindle Highlights Parser is a tool for parsing and organizing your saved Kindle book highlights into a readable format. If you're an avid reader, you may have accumulated a large number of highlights over time, and this tool can help you keep track of them all.
+The Kindle Highlights Parser is a tool for parsing and organizing your saved Kindle ebooks highlights into a readable format. If you're an avid reader, you may have accumulated a large number of highlights over time, and this tool can help you keep track of them all.
 
 ## Features
 
