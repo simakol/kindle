@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kindle/static/css/main.8a34ff87.css",
-    "main.js": "/kindle/static/js/main.fbffae6c.js",
+    "main.js": "/kindle/static/js/main.0b411541.js",
     "static/media/back-arrow.svg": "/kindle/static/media/back-arrow.9990baeefd4b19b29f93.svg",
     "index.html": "/kindle/index.html",
     "main.8a34ff87.css.map": "/kindle/static/css/main.8a34ff87.css.map",
-    "main.fbffae6c.js.map": "/kindle/static/js/main.fbffae6c.js.map"
+    "main.0b411541.js.map": "/kindle/static/js/main.0b411541.js.map"
   },
   "entrypoints": [
     "static/css/main.8a34ff87.css",
-    "static/js/main.fbffae6c.js"
+    "static/js/main.0b411541.js"
   ]
 }
