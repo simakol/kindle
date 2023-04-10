@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import routesConfig from "../../configurations/routes.config";
 
 import "./style.css";
@@ -35,22 +36,27 @@ function InputFile({ sendClippings, clippings }) {
 
   if (!file)
     return (
-      <div className="container">
-        <div className="file-upload-wrapper">
-          <label htmlFor="file-upload" className="custom-file-upload">
-            <div className="upload-content">
-              &#x1F4E5; <span>Выберите файл</span>
-            </div>
-          </label>
-          <input
-            id="file-upload"
-            type="file"
-            onChange={handleFileChange}
-            accept="text/plain"
-          />
-          {linkToBooks}
+      <>
+        <Helmet>
+          <title>Kindle</title>
+        </Helmet>
+        <div className="container">
+          <div className="file-upload-wrapper">
+            <label htmlFor="file-upload" className="custom-file-upload">
+              <div className="upload-content">
+                &#x1F4E5; <span>Выберите файл</span>
+              </div>
+            </label>
+            <input
+              id="file-upload"
+              type="file"
+              onChange={handleFileChange}
+              accept="text/plain"
+            />
+            {linkToBooks}
+          </div>
         </div>
-      </div>
+      </>
     );
 }
 

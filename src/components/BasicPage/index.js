@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import ScrollToTopButton from "../ScrollToTopButton";
 import ContentTile from "../ContentTile";
 import Footer from "../Footer";
@@ -17,6 +18,9 @@ function BasicPage({
 }) {
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
       <div className="container basic-page">
         <h1 className="main-title">{title}</h1>
         {sortActiveBtn ? (

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { getQuotesByBookAndAuthor } from "../../functions/clippingsFilters";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
 import Footer from "../../components/Footer";
@@ -28,6 +29,9 @@ function QuotePage({ clippings }) {
 
   const quotesMarkup = quotes ? (
     <>
+      <Helmet>
+        <title>{bookName}</title>
+      </Helmet>
       <div className="quotes-title-wrapper">
         <h1 className="main-title">{bookName}</h1>
         <h2 className="main-subtitle">{author}</h2>
