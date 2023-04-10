@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import routesConfig from "../../configurations/routes.config";
+
 import "./style.css";
 
 function InputFile({ sendClippings, clippings }) {
@@ -23,7 +25,9 @@ function InputFile({ sendClippings, clippings }) {
   const linkToBooks = clippings ? (
     <div className="input-books-wrapper">
       <span>или</span>
-      <Link to="/kindle/books">Перейдите к сохраненным книгам &#x1F4D6;</Link>
+      <Link to={routesConfig.routes.books}>
+        Перейдите к сохраненным книгам &#x1F4D6;
+      </Link>
     </div>
   ) : (
     ""

@@ -4,6 +4,7 @@ import { saveToLocalStorage, loadFromLocalStorage } from "./functions/storage";
 import getClippingsObj from "./functions/getClippingsObj";
 import { getAllBooks, getAuthors } from "./functions/clippingsFilters";
 import localStorageConfig from "./configurations/localStorage.config";
+import routesConfig from "./configurations/routes.config";
 import InputFile from "./pages/InputFile";
 import Books from "./pages/Books";
 import Authors from "./pages/Authors";
@@ -16,12 +17,17 @@ function App() {
     loadFromLocalStorage(localStorageConfig.clippingsKey)
   );
   const navigate = useNavigate();
+  const { routes } = routesConfig;
 
   const handleClippings = (clippings) => {
     clippings = getClippingsObj(clippings);
     setClippings(clippings);
     saveToLocalStorage(localStorageConfig.clippingsKey, clippings);
-    navigate("/kindle/books");
+    navigate(routes.books);
+  };
+
+  const showQuotes = ({ author, bookName }) => {
+    navigate(routesConfig.getBookQuotesRoute(author, bookName));
   };
 
   const allBooks = getAllBooks(clippings);
@@ -36,29 +42,35 @@ function App() {
       <Route
         exact
         index
-        path="/kindle"
+        path={routes.index}
         element={
           <InputFile sendClippings={handleClippings} clippings={clippings} />
         }
       />
       <Route
-        path="/kindle/books"
+        path={routes.books}
         exact
-        element={<Books allBooks={allBooks} counter={counter} />}
+        element={
+          <Books
+            allBooks={allBooks}
+            counter={counter}
+            showQuotes={showQuotes}
+          />
+        }
       />
       <Route
-        path="/kindle/books/:author/:bookName"
+        path={routes.bookQuotes}
         element={<QuotePage clippings={clippings} />}
       />
       <Route
-        path="/kindle/authors"
+        path={routes.authors}
         exact
         element={<Authors authors={authors} counter={counter} />}
       />
       <Route
-        path="/kindle/authors/:author"
+        path={routes.author}
         exact
-        element={<AuthorBooks clippings={clippings} />}
+        element={<AuthorBooks clippings={clippings} showQuotes={showQuotes} />}
       />
       <Route path="*" element={<NotFound />} />
     </Routes>

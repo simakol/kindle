@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import routesConfig from "../../configurations/routes.config";
 import { getBooksByAuthor } from "../../functions/clippingsFilters";
 import BasicPage from "../../components/BasicPage";
 
-function AuthorBooks({ clippings }) {
+function AuthorBooks({ clippings, showQuotes }) {
   const { author } = useParams();
-  const navigate = useNavigate();
   const booksByAuthor = getBooksByAuthor({ clippings, author });
 
   useEffect(() => {
@@ -15,15 +15,11 @@ function AuthorBooks({ clippings }) {
     });
   }, []);
 
-  const showQuotes = ({ author, bookName }) => {
-    navigate(`/kindle/books/${author}/${encodeURIComponent(bookName)}`);
-  };
-
   return (
     <BasicPage
       title={`Книги автора ${author} \u{1F58B}`}
       backBtnText="К списку писателей"
-      backBtnPath="/kindle/authors"
+      backBtnPath={routesConfig.routes.authors}
       tileContent={booksByAuthor}
       tileRedirectFunction={showQuotes}
       tileNotFoundText="Книг не найдено"
