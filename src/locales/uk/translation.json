@@ -1,0 +1,31 @@
+{
+  "buttons": {
+    "input": "Виберіть файл",
+    "savedBooks": "Перейдіть до збережених книг",
+    "backButtons": {
+      "loadOtherFile": "Завантажити інший файл",
+      "back": "Назад",
+      "authorsList": "До списку авторів",
+      "main": "На головну"
+    }
+  },
+  "titles": {
+    "books": "Ваші книги",
+    "authors": "Ваші автори",
+    "author": "Книги автора"
+  },
+  "separators": {
+    "or": "або"
+  },
+  "filters": {
+    "books": "Книги",
+    "authors": "Автори"
+  },
+  "notFound": {
+    "books": "Книг не знайдено",
+    "authors": "Авторів не знайдено",
+    "bookOfAuthor": "Книги bookName автора author не знайдено!",
+    "wrongRoute": "Упс! Схоже, ви загубились",
+    "wrongRouteHelmet": "Не знайдено"
+  }
+}
