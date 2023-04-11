@@ -49,3 +49,9 @@ input[type="file"] {
 .upload-content > span {
   padding-left: 20px;
 }
+
+.file-upload-head {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

@@ -26,8 +26,13 @@ function BasicPage({
           {title} {titleImg}
         </title>
       </Helmet>
-      <ChangeLanguage />
       <div className="container basic-page">
+        <div className="basic-page-head page-head">
+          <Link to={backBtnPath} className="back-button">
+            {backBtnText} {backBtnImg}
+          </Link>
+          <ChangeLanguage />
+        </div>
         <h1 className="main-title">
           {title} {titleImg}
         </h1>
@@ -36,9 +41,7 @@ function BasicPage({
         ) : (
           ""
         )}
-        <Link to={backBtnPath} className="back-button">
-          {backBtnText} {backBtnImg}
-        </Link>
+
         <ContentTile
           content={tileContent}
           redirectFunction={tileRedirectFunction}
