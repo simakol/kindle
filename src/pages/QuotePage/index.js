@@ -58,11 +58,14 @@ function QuotePage({ clippings }) {
       <Helmet>
         <title>{bookName}</title>
       </Helmet>
-      <ChangeLanguage />
       <div className="container">
-        <button type="button" onClick={goBack} className="back-button">
-          {t("buttons.backButtons.back")}
-        </button>
+        <div className="basic-page-head page-head">
+          <button type="button" onClick={goBack} className="back-button">
+            {t("buttons.backButtons.back")}
+          </button>
+          <ChangeLanguage />
+        </div>
+
         {quotesMarkup}
         <ScrollToTopButton />
       </div>

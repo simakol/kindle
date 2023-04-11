@@ -10,7 +10,7 @@
 }
 
 .main-title {
-  margin-top: 80px;
+  margin-top: 20px;
   margin-bottom: 80px;
 }
 
@@ -20,9 +20,6 @@
   display: inline-block;
   background-color: transparent;
   border: none;
-  position: absolute;
-  left: 158px;
-  top: 34px;
   cursor: pointer;
 }
 .back-button::before {
@@ -32,4 +29,10 @@
 
 .container.basic-page {
   padding-bottom: 100px;
+}
+
+.basic-page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

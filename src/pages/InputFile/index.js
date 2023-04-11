@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import routesConfig from "../../configurations/routes.config";
 import ChangeLanguage from "../../components/ChangeLanguage";
-
 import "./style.css";
 
 function InputFile({ sendClippings, clippings }) {
@@ -43,8 +42,10 @@ function InputFile({ sendClippings, clippings }) {
         <Helmet>
           <title>Kindle</title>
         </Helmet>
-        <ChangeLanguage />
         <div className="container">
+          <div className="file-upload-head page-head">
+            <ChangeLanguage />
+          </div>
           <div className="file-upload-wrapper">
             <label htmlFor="file-upload" className="custom-file-upload">
               <div className="upload-content">
