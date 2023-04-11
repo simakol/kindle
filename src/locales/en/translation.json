@@ -1,0 +1,31 @@
+{
+  "buttons": {
+    "input": "Select a file",
+    "savedBooks": "Go to your saved books",
+    "backButtons": {
+      "loadOtherFile": "Select another file",
+      "back": "Back",
+      "authorsList": "To the list of authors",
+      "main": "Back to the main page"
+    }
+  },
+  "titles": {
+    "books": "Your books",
+    "authors": "Your authors",
+    "author": "Author's books"
+  },
+  "separators": {
+    "or": "or"
+  },
+  "filters": {
+    "books": "Books",
+    "authors": "Authors"
+  },
+  "notFound": {
+    "books": "Books not found",
+    "authors": "Authors not found",
+    "bookOfAuthor": "Book bookName by author not found!",
+    "wrongRoute": "Oops! Looks like you're lost",
+    "wrongRouteHelmet": "Not found"
+  }
+}

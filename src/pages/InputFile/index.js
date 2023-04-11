@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import routesConfig from "../../configurations/routes.config";
+import ChangeLanguage from "../../components/ChangeLanguage";
 
 import "./style.css";
 
 function InputFile({ sendClippings, clippings }) {
   const [file, setFile] = useState();
+  const { t } = useTranslation();
 
   const handleFileChange = (e) => {
     if (e.target.files) {
@@ -25,9 +28,9 @@ function InputFile({ sendClippings, clippings }) {
 
   const linkToBooks = clippings ? (
     <div className="input-books-wrapper">
-      <span>или</span>
+      <span>{t("separators.or")}</span>
       <Link to={routesConfig.routes.books}>
-        Перейдите к сохраненным книгам &#x1F4D6;
+        {t("buttons.savedBooks")} &#x1F4D6;
       </Link>
     </div>
   ) : (
@@ -40,11 +43,12 @@ function InputFile({ sendClippings, clippings }) {
         <Helmet>
           <title>Kindle</title>
         </Helmet>
+        <ChangeLanguage />
         <div className="container">
           <div className="file-upload-wrapper">
             <label htmlFor="file-upload" className="custom-file-upload">
               <div className="upload-content">
-                &#x1F4E5; <span>Выберите файл</span>
+                &#x1F4E5; <span>{t("buttons.input")}</span>
               </div>
             </label>
             <input

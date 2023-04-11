@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 import { getQuotesByBookAndAuthor } from "../../functions/clippingsFilters";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
 import Footer from "../../components/Footer";
+import ChangeLanguage from "../../components/ChangeLanguage";
 import "./style.css";
 
 function QuotePage({ clippings }) {
   const { bookName, author } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const quotes = getQuotesByBookAndAuthor({
     clippings,
@@ -29,9 +32,6 @@ function QuotePage({ clippings }) {
 
   const quotesMarkup = quotes ? (
     <>
-      <Helmet>
-        <title>{bookName}</title>
-      </Helmet>
       <div className="quotes-title-wrapper">
         <h1 className="main-title">{bookName}</h1>
         <h2 className="main-subtitle">{author}</h2>
@@ -46,16 +46,22 @@ function QuotePage({ clippings }) {
     </>
   ) : (
     <p className="something-not-found quotes">
-      Книги <span>{bookName}</span> автора <span>{author}</span> не найдено!
+      {t("notFound.bookOfAuthor")
+        .replace("bookName", bookName)
+        .replace("author", author)}
       &#x1F914;
     </p>
   );
 
   return (
     <>
+      <Helmet>
+        <title>{bookName}</title>
+      </Helmet>
+      <ChangeLanguage />
       <div className="container">
         <button type="button" onClick={goBack} className="back-button">
-          Назад
+          {t("buttons.backButtons.back")}
         </button>
         {quotesMarkup}
         <ScrollToTopButton />

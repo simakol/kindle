@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import routesConfig from "../../configurations/routes.config";
 import { getBooksByAuthor } from "../../functions/clippingsFilters";
 import BasicPage from "../../components/BasicPage";
 
 function AuthorBooks({ clippings, showQuotes }) {
   const { author } = useParams();
+  const { t } = useTranslation();
   const booksByAuthor = getBooksByAuthor({ clippings, author });
 
   useEffect(() => {
@@ -17,12 +19,13 @@ function AuthorBooks({ clippings, showQuotes }) {
 
   return (
     <BasicPage
-      title={`Книги автора ${author} \u{1F58B}`}
-      backBtnText="К списку писателей"
+      title={`${t("titles.author")} ${author}`}
+      titleImg="&#x1F58B;"
+      backBtnText={t("buttons.backButtons.authorsList")}
       backBtnPath={routesConfig.routes.authors}
       tileContent={booksByAuthor}
       tileRedirectFunction={showQuotes}
-      tileNotFoundText="Книг не найдено"
+      tileNotFoundText={t("buttons.notFound.books")}
     />
   );
 }

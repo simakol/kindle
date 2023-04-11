@@ -4,12 +4,15 @@ import ScrollToTopButton from "../ScrollToTopButton";
 import ContentTile from "../ContentTile";
 import Footer from "../Footer";
 import SortContent from "../SortContent";
+import ChangeLanguage from "../../components/ChangeLanguage";
 import "./style.css";
 
 function BasicPage({
   title,
+  titleImg = "",
   sortActiveBtn,
   backBtnText,
+  backBtnImg = "",
   backBtnPath,
   tileContent,
   tileRedirectFunction,
@@ -19,17 +22,22 @@ function BasicPage({
   return (
     <>
       <Helmet>
-        <title>{title}</title>
+        <title>
+          {title} {titleImg}
+        </title>
       </Helmet>
+      <ChangeLanguage />
       <div className="container basic-page">
-        <h1 className="main-title">{title}</h1>
+        <h1 className="main-title">
+          {title} {titleImg}
+        </h1>
         {sortActiveBtn ? (
           <SortContent active={sortActiveBtn} counter={counter} />
         ) : (
           ""
         )}
         <Link to={backBtnPath} className="back-button">
-          {backBtnText}
+          {backBtnText} {backBtnImg}
         </Link>
         <ContentTile
           content={tileContent}
