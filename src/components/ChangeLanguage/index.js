@@ -12,7 +12,7 @@ function ChangeLanguage() {
   saveToLocalStorage(localStorageConfig.lang, currentLanguage);
 
   const changeLanguageHandler = (e) => {
-    const languageValue = e.target.value || currentLanguage;
+    const languageValue = e.target.value;
     i18n.changeLanguage(languageValue);
     saveToLocalStorage(localStorageConfig.lang, languageValue);
   };
