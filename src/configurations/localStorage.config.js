@@ -1,5 +1,3 @@
-const config = {
+module.exports = {
   clippingsKey: "clippings",
 };
-
-export default config;

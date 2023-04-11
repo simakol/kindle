@@ -4,7 +4,7 @@ const authors = "authors";
 const author = ":author";
 const bookName = ":bookName";
 
-const config = {
+module.exports = {
   routes: {
     index: `${index}`,
     books: `${index}/${books}`,
@@ -29,5 +29,3 @@ const config = {
     return route.replace(this.dynamicNames.author, encodeURIComponent(author));
   },
 };
-
-export default config;
