@@ -2,8 +2,8 @@
   "files": {
     "main.css": "/kindle/static/css/main.70dbcc56.css",
     "main.js": "/kindle/static/js/main.3b9a2af7.js",
-    "static/media/back-arrow.svg": "/kindle/static/media/back-arrow.9990baeefd4b19b29f93.svg",
     "index.html": "/kindle/index.html",
+    "static/media/back-arrow.svg": "/kindle/static/media/back-arrow.9990baeefd4b19b29f93.svg",
     "main.70dbcc56.css.map": "/kindle/static/css/main.70dbcc56.css.map",
     "main.3b9a2af7.js.map": "/kindle/static/js/main.3b9a2af7.js.map"
   },
