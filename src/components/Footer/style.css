@@ -1,4 +1,4 @@
-footer {
+.footer {
   border-top: 2px solid #fff;
 }
 
@@ -17,4 +17,10 @@ footer {
   text-decoration: none;
   color: #2eb7dc;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer-text {
+    font-size: 23px;
+  }
 }

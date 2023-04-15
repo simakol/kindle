@@ -1,4 +1,4 @@
-.tile-title-wrapper > p,
+.tile-title-wrapper p,
 .something-not-found {
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -51,7 +51,66 @@
 .tile-title-wrapper > .tile-title {
   padding-top: 10px;
 }
-.tile-title-wrapper > p {
+.tile-title-wrapper p {
   font-size: 38px;
   word-wrap: break-word;
+}
+
+@media only screen and (max-width: 1230px) {
+  .tile-title-wrapper p,
+  .something-not-found {
+    font-size: 32px;
+    line-height: 25px;
+  }
+
+  .tile-container {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .tile-title-wrapper {
+    height: 150px;
+  }
+
+  .tile-title-wrapper > .tile-subtitle {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .tile-title-wrapper > .tile-title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 1040px) {
+  .tile-title-wrapper p,
+  .something-not-found {
+    font-size: 32px;
+    line-height: 25px;
+  }
+
+  .tile-container {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0 15px;
+  }
+
+  .tile-title-wrapper {
+    height: auto;
+    padding: 30px 10px;
+    width: 100%;
+  }
+  .tile-title-wrapper:nth-child(3n + 1),
+  .tile-title-wrapper:nth-child(3n + 2) {
+    width: 100%;
+  }
+
+  .tile-title-wrapper > .tile-subtitle {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .tile-title-wrapper > .tile-title {
+    font-size: 26px;
+    padding: 0;
+  }
 }

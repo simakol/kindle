@@ -10,11 +10,10 @@
 }
 
 .quotes-title-wrapper {
-  margin-top: 20px;
   background-color: #2eb7dc;
   padding: 50px 100px;
   border-radius: 10px;
-  margin-bottom: 90px;
+  margin: 20px 10px 90px;
 }
 
 .main-subtitle {
@@ -48,9 +47,32 @@
 
 .something-not-found.quotes {
   margin-top: 150px;
+  line-height: 40px;
 }
 
-.something-not-found.quotes > span {
-  color: #2eb7dc;
-  text-decoration: underline;
+@media only screen and (max-width: 768px) {
+  .quotes-title-wrapper {
+    padding: 15px;
+    margin: 20px 10px 90px;
+  }
+
+  .quotes {
+    padding: 0 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main-subtitle,
+  .quote-item {
+    font-size: 18px;
+  }
+
+  .main-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .quotes-title-wrapper {
+    padding: 10px;
+    margin: 20px 10px 50px;
+  }
 }

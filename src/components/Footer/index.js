@@ -2,7 +2,7 @@ import "./style.css";
 
 function Footer() {
   return (
-    <footer className="container">
+    <footer className="footer container">
       <p className="footer-text">
         Developed by{" "}
         <a href="https://github.com/simakol" target="_blank" rel="noreferrer">

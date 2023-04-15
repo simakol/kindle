@@ -15,3 +15,13 @@
   color: #2eb7dc;
   text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .not-found-container {
+    font-size: 32px;
+    line-height: 50px;
+  }
+  .not-found-container > a {
+    margin-top: 50px;
+  }
+}

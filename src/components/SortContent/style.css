@@ -26,3 +26,13 @@
 .sort-btn.active {
   background-color: #2eb7dc;
 }
+
+@media only screen and (max-width: 600px) {
+  .sort-btns-wrapper {
+    gap: 10px;
+  }
+  .sort-btn {
+    font-size: 28px;
+    padding: 0px 15px;
+  }
+}

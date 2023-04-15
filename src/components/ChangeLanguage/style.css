@@ -1,7 +1,4 @@
 .custom-select {
-  /* position: absolute;
-  right: 0;
-  top: 0; */
   font-size: 25px;
   background-color: #2eb7dc;
   border: none;
@@ -11,8 +8,9 @@
   outline: none;
   cursor: pointer;
 }
-
-/* .select-wrapper {
-  position: relative;
-  display: inline-block;
-} */
+@media only screen and (max-width: 600px) {
+  .custom-select {
+    font-size: 18px;
+    padding: 3px 5px;
+  }
+}
